@@ -56,8 +56,6 @@ class HashTable
     void        InvalidateTable();
     void        GetMostInserted(std::vector<int>& intArray) const;
     void        PrintSortedLRUEntries() const;
-
-    // Implemented Functions
     void        PrintTable() const;
 };
 
