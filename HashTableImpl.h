@@ -1,9 +1,6 @@
 #ifndef HASH_TABLE_HPP
 #define HASH_TABLE_HPP
 
-//=======================//
-// Implemented Functions //
-//=======================//
 template<int MAX_SIZE>
 int HashTable<MAX_SIZE>::PRIMES[3] = {102523, 100907, 104659};
 
@@ -53,13 +50,9 @@ void HashTable<MAX_SIZE>::PrintTable() const
     }
 }
 
-//=======================//
-//          TODO         //
-//=======================//
 template<int MAX_SIZE>
 int HashTable<MAX_SIZE>::Hash(int startInt, int endInt, bool isCostWeighted)
 {
-    /* TODO */
     int cost;
     
     if(isCostWeighted) cost=1;
@@ -71,7 +64,6 @@ int HashTable<MAX_SIZE>::Hash(int startInt, int endInt, bool isCostWeighted)
 template<int MAX_SIZE>
 HashTable<MAX_SIZE>::HashTable()
 {
-    /* TODO */
     elementCount = 0;
     
     for(int i=0;i<MAX_SIZE;i++){
@@ -83,7 +75,6 @@ HashTable<MAX_SIZE>::HashTable()
 template<int MAX_SIZE>
 int HashTable<MAX_SIZE>::Insert(const std::vector<int>& intArray, bool isCostWeighted)
 {
-    /* TODO */
     if(intArray.size()<1) throw InvalidTableArgException();
     
     int result=0, h = Hash(intArray[0], intArray[intArray.size()-1], isCostWeighted) % MAX_SIZE, q, i;
@@ -116,7 +107,6 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
                                int startInt, int endInt, bool isCostWeighted,
                                bool incLRU)
 {
-    /* TODO */
     int h = Hash(startInt, endInt, isCostWeighted) % MAX_SIZE;
     
     for(int q = h, i=0; table[q].sentinel != EMPTY_MARK; ++i ,q = (h + i*i) % MAX_SIZE){
@@ -133,7 +123,6 @@ bool HashTable<MAX_SIZE>::Find(std::vector<int>& intArray,
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::InvalidateTable()
 {
-    /* TODO */
     for(int i = 0; i < MAX_SIZE; i++){
         table[i].sentinel = EMPTY_MARK;
         table[i].lruCounter = 0;
@@ -145,7 +134,6 @@ void HashTable<MAX_SIZE>::InvalidateTable()
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::GetMostInserted(std::vector<int>& intArray) const
 {
-    /* TODO */
     int theIndex, maxCount=0, i;
     
     for(i = 0; i < MAX_SIZE; i++){
@@ -165,7 +153,6 @@ template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::Remove(std::vector<int>& intArray,
                                  int startInt, int endInt, bool isCostWeighted)
 {
-    /* TODO */
     int h = Hash(startInt, endInt, isCostWeighted) % MAX_SIZE;
     
     for(int q = h, i=0; table[q].sentinel != EMPTY_MARK; ++i ,q = (h + i*i) % MAX_SIZE){
@@ -183,7 +170,6 @@ void HashTable<MAX_SIZE>::Remove(std::vector<int>& intArray,
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::RemoveLRU(int lruElementCount)
 {
-    /* TODO */
     int i;
     MinPairHeap<int, int> Heap;
     
@@ -207,7 +193,6 @@ void HashTable<MAX_SIZE>::RemoveLRU(int lruElementCount)
 template<int MAX_SIZE>
 void HashTable<MAX_SIZE>::PrintSortedLRUEntries() const
 {
-    /* TODO */
     int i;
     MaxPairHeap<int, int> Heap;
     
